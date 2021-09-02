@@ -9,7 +9,7 @@
                 <label for="" class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-9">
                     <input type="text"
-                            ngModel
+                            [ngModel]= 'initForm.producto'
                             name="producto"        
                             class="form-control"
                             placeholder="Nombre del producto"
@@ -26,7 +26,7 @@
                 <label for="precio" class="col-sm-3 col-form-label">Precio</label>
                 <div class="col-sm-9">
                     <input type="number" 
-                            ngModel
+                            [ngModel]= 'initForm.precio'
                             name="precio"    
                             class="form-control"
                             placeholder="Precio del producto"
@@ -42,7 +42,7 @@
                 <label for="" class="col-sm-3 col-form-label">Existencias</label>
                 <div class="col-sm-9">
                     <input type="number" min="0"
-                            ngModel
+                            [ngModel]= 'initForm.existencias'
                             name="existencias" 
                             customMin
                             [minimo]="0"
