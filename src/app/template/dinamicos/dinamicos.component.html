@@ -25,9 +25,20 @@
         <label class="col sm-3 col-form-label">Agregar</label>
         <div class="col-sm-9">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Agregar Juego"
-                 aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button class="btn btn-outline-primary" type="button">Agregar</button>  
+                <input type="text" 
+                class="form-control" 
+                placeholder="Agregar Juego"
+                [(ngModel)]="nuevoJuego"
+                name="nuevoJuego"
+                (keyup.enter)="agregarJuego()"
+                 >
+
+                <button class="btn btn-outline-primary" 
+                type="button"
+                (click)="agregarJuego()"
+                >
+                    Agregar
+                </button>  
             </div>
         </div>
 
@@ -38,6 +49,7 @@
             <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
                 <input  [value]="juego.favorito"
                         class="form-control ">
+
                 <button class="btn btn-outline-danger " 
                 type="button"
                 (click)="eliminar(i)">Eliminar</button>  
