@@ -2,15 +2,15 @@
 <h2>Template: Switches</h2>
 <hr>
 
-<form autocomplete="off">
+<form autocomplete="off" (ngSubmit)="guardar()" [formGroup]="miForm">
 
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Género</label>
-        <div class="col-sm-9">
+        <label class="col-sm-4 col-md-3 col-form-label">Género</label>
+        <div class="col-sm-8 col-md-9">
             <div class="form-check">
                 <input class="form-check-input" 
                         type="radio" 
-                        name="radioGenero" 
+                        formControlName="genero"
                         id="radioMas"
                         value="M"
                         required>
@@ -21,7 +21,7 @@
             <div class="form-check">
                 <input class="form-check-input" 
                         type="radio" 
-                        name="radioGenero" 
+                        formControlName="genero"     
                         id="radioFe"
                         value="F"
                         required>
@@ -32,7 +32,7 @@
             <div class="form-check">
                 <input class="form-check-input" 
                         type="radio" 
-                        name="radioGenero" 
+                        formControlName="genero"
                         id="radioNoBi"
                         value="NB"
                         required>
@@ -44,11 +44,12 @@
     </div>
     <!-- Switches -->
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label ">Notificaciones</label>
-        <div class="col-sm-9 ">
+        <label class="col-sm-4 col-md-3 col-form-label ">Notificaciones</label>
+        <div class="col-sm-8 col-md-9">
             <div class="form-check form-switch mt-2">
                 <input class="form-check-input" 
                         type="checkbox" 
+                        formControlName="notificaciones"
                         id="flexSwitchCheckChecked"
                         name="notificaciones"
                        >
@@ -58,13 +59,13 @@
     </div>
     <!-- Check -->
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label"></label>
-        <div class="col-sm-9 ">
+        <label class="col-sm-4 col-md-3 col-form-label"></label>
+        <div class="col-sm-8 col-md-9">
             <div class="form-check">
                 <input class="form-check-input" 
                         type="checkbox" 
                         id="defaultCheck1"
-                        name="terminosYcondiciones"
+                        formControlName="condiciones"
                         required>
                 <label class="form-check-label" for="defaultCheck1">
                    Acepto los términos y condiciones de uso
@@ -75,8 +76,11 @@
     <!-- Submit -->
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary float-end">
-                Enviar
+            <button type="submit"
+                [disabled]="miForm.invalid"
+                class="btn btn-primary float-end"
+                >
+                Guardar
             </button>
         </div>
     </div>
@@ -85,14 +89,14 @@
 <h5>
     valor de formulario
 </h5>
-<!-- 
-<pre>{{miFormulario.value | json}} </pre>
+
+<pre>{{miForm.value | json}} </pre>
 <br>
 <pre>{{persona | json}} </pre>
 <br>
 <h5>Valid</h5>
-<pre>{{miFormulario.valid | json}} </pre>
+<pre>{{miForm.valid | json}} </pre>
 <br>
-<pre>{{miFormulario.controls?.terminosYcondiciones?.errors | json}} </pre>
+<pre>{{miForm.controls?.terminosYcondiciones?.errors | json}} </pre>
 <br>
-<pre>Condiciones: </pre> -->
+<pre>Condiciones: </pre>
